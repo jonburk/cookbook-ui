@@ -31,16 +31,29 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'file-loader?name=assets/[name].[hash].[ext]'
       },
-      {
-        test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap' })
-      },
-      {
-        test: /\.css$/,
-        include: helpers.root('src', 'app'),
-        loader: 'raw-loader'
-      }
+			{
+				test: /\.css$/,
+				exclude: helpers.root('src', 'app'),
+				loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap-loader!postcss-loader' })
+			},
+			{
+				test: /\.css$/,
+				include: helpers.root('src', 'app'),
+				loader: 'raw-loader!postcss-loader'
+			},
+			{
+				test: /\.scss$/,
+				exclude: helpers.root('src', 'app'),
+				loader: ExtractTextPlugin.extract({ 
+          fallback: 'style-loader', 
+          use: 'css-loader?sourceMap-loader!postcss-loader!resolve-url-loader!sass-loader?sourceMap-loader' 
+        })
+			},
+			{ 
+				test: /\.scss$/,
+				include: helpers.root('src', 'app'),
+				loaders: ['exports-loader?module.exports.toString()', 'css-loader', 'postcss-loader', 'sass-loader']
+			}
     ]
   },
 
