@@ -3,14 +3,6 @@ main {
   width: 800px;
 }
 
-div.headerBackground {
-  background: #1c0602;
-  height: 128px;
-  width: 100%;
-  position: absolute;  
-  z-index: -1;
-}
-
 div.bannerGradient {
   background: linear-gradient(to right, rgba(28,6,2,1), rgba(28,6,2,0));
   height: 128px;
@@ -54,6 +46,7 @@ nav a:hover {
 div.content {
   background-color: white;
   padding: 6px;
+  color: #232323;
 }
 
 footer {

@@ -12,5 +12,14 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: .85em;    
+    font-size: .85em;   
+    color: white; 
+}
+
+div.headerBackground {
+  background: #1c0602;
+  height: 128px;
+  width: 100%;
+  position: absolute;  
+  z-index: -1;
 }
