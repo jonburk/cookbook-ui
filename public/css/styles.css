@@ -1,4 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Arizonia');
+
+html {
+    height: 100%;
+}
+
 body {
-    background: #0147A7;
-    color: #fff;
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(#1c0602, #633);
+    background-position-y: 128px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: .85em;    
 }
