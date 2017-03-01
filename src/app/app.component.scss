@@ -33,7 +33,7 @@ nav {
   a {
     color: $brand-accent;
 
-    :hover {
+    &:hover {
       color: $brand-accent2;
     }
   }
@@ -43,6 +43,8 @@ div.content {
   background-color: white;
   padding-top: $form-group-margin-bottom;
   color: $gray-dark;
+  border-bottom-left-radius: $border-radius-base;
+  border-bottom-right-radius: $border-radius-base;
 }
 
 footer {
