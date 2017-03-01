@@ -9,6 +9,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $body-bg: $brand-dark;
 $text-color: white;
 $brand-primary: #633;
+$input-border-focus: lighten($brand-accent, 25%);
 
 // Import standard Bootstrap CSS (make sure this is after setting Bootstrap SASS variables)
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";

@@ -27,8 +27,8 @@ h1 {
 
 nav {
   background-color: $brand-primary;
-  border-top-left-radius: 6px;
-  padding: 6px;
+  border-top-left-radius: $border-radius-base;
+  padding: $padding-base-vertical $padding-base-horizontal;
 
   a {
     color: $brand-accent;
@@ -41,12 +41,12 @@ nav {
 
 div.content {
   background-color: white;
-  padding-top: 15px;
+  padding-top: $form-group-margin-bottom;
   color: $gray-dark;
 }
 
 footer {
   color: $brand-accent2;
-  font-size: .75em;
-  padding-top: .85em;
+  font-size: $font-size-small;
+  padding-top: $padding-small-vertical;
 }
