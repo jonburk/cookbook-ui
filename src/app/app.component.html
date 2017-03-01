@@ -1,14 +1,13 @@
-<main>  
-  <header>
-    <div class='bannerGradient'></div>
-    <div class='banner'></div>
+<main class='container'>  
+  <header class='row'>    
+    <div class='banner'><div class='bannerGradient'></div></div>
     <h1>To Serve Man&hellip;</h1>
     <nav><a routerLink='/search'>Recipes</a></nav>
   </header>
-  <div class='content'>
+  <div class='content row container'>
     <router-outlet></router-outlet>
   </div>
-  <footer>
+  <footer class='row'>
     Copyright &copy; 2012&ndash;2017 Jonathan Burk
   </footer>
 </main>

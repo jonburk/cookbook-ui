@@ -53,7 +53,11 @@ module.exports = {
 				test: /\.scss$/,
 				include: helpers.root('src', 'app'),
 				loaders: ['exports-loader?module.exports.toString()', 'css-loader', 'postcss-loader', 'sass-loader']
-			}
+			},
+      { 
+        test: /\.(woff2?|ttf|eot|svg)$/, 
+        loader: 'url-loader?limit=10000' 
+      },      
     ]
   },
 

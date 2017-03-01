@@ -1,25 +1,22 @@
-main {
-  margin: 0 auto;
-  width: 800px;
-}
+@import '../../public/css/common';
 
 div.bannerGradient {
-  background: linear-gradient(to right, rgba(28,6,2,1), rgba(28,6,2,0));
-  height: 128px;
+  background: linear-gradient(to right, $brand-dark, rgba($brand-dark, 0));
+  height: $header-height;
   width: 100px;  
-  position: absolute;  
-  margin-left: 500px;  
+  float: right;
+  margin-right: 200px;
 }
 
 div.banner {
   background-image: url(../../public/images/header.png);
   background-position: right top; 
   background-repeat: no-repeat;
-  height: 128px;  
+  height: $header-height;
 }
 
 h1 {
-  color: #feaf02;
+  color: $brand-accent;
   padding: 0 0 2px 0;
   margin: -63px 0 0 0;
   font-family: 'Arizonia', cursive;
@@ -29,28 +26,27 @@ h1 {
 }
 
 nav {
-  background-color: #633;
+  background-color: $brand-primary;
   border-top-left-radius: 6px;
   padding: 6px;
-}
 
-nav a {
-  color: #feaf02;
-}
+  a {
+    color: $brand-accent;
 
-nav a:hover {
-  color: #feedc7;
-  text-decoration: underline;
+    :hover {
+      color: $brand-accent2;
+    }
+  }
 }
 
 div.content {
   background-color: white;
-  padding: 6px;
-  color: #232323;
+  padding-top: 15px;
+  color: $gray-dark;
 }
 
 footer {
-  color: #feedc7;
+  color: $brand-accent2;
   font-size: .75em;
   padding-top: .85em;
 }

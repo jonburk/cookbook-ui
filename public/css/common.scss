@@ -1,0 +1,14 @@
+// Variables
+$header-height: 128px;
+$brand-accent: #feaf02;
+$brand-accent2: #feedc7;
+$brand-dark: #1c0602;
+
+// Bootstrap
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$body-bg: $brand-dark;
+$text-color: white;
+$brand-primary: #633;
+
+// Import standard Bootstrap CSS (make sure this is after setting Bootstrap SASS variables)
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
