@@ -1,6 +1,19 @@
 <form>
   <div class='form-group'>
     <label for='search'>Find a recipe</label>
-    <input type='text' class='form-control' id='search' placeholder='What are you in the mood for?'>
+    <div class='input-group'>
+      <input type='text' 
+            class='form-control' 
+            id='search' 
+            name='search'
+            placeholder='What are you in the mood for?'
+            typeaheadMinLength='1'           
+            [(ngModel)]='searchTerm'
+            [typeahead]='searchHints'
+            (typeaheadOnSelect)='typeaheadOnSelect($event)'>      
+      <span class='input-group-btn'>
+        <button type='submit' class='btn btn-primary' (click)='search($event)'><i class='fa fa-search'></i></button>
+      </span>
+    </div>
   </div>
 </form>
