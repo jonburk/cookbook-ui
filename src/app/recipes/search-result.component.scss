@@ -1,0 +1,45 @@
+@import '../../../public/css/common';
+
+.bookReference {
+  font-style: italic;
+  margin-bottom: $padding-small-vertical;
+}
+
+.recipeTitle {
+  h4 {
+    margin-top: 0;
+    margin-bottom: $padding-small-vertical;
+  }
+
+  i {
+    color: $brand-accent;
+  }
+}
+
+.recipeThumbnail {
+  margin-right: $padding-base-horizontal;
+  width: $thumbnail-size;
+  height: $thumbnail-size;
+  flex: 0 0 auto;
+}
+
+.recipeIngredients {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lastResult {
+  margin-bottom: $form-group-margin-bottom;
+}
+
+.ingredientTagBlock {
+  flex: 0 0 auto;
+}
+
+.searchResult {
+  display: flex;
+}
+
+.recipeDetails {
+  flex: 1 1 auto;
+}

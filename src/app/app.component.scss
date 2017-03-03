@@ -22,13 +22,12 @@ h1 {
   font-family: 'Arizonia', cursive;
   font-size: 4em;
   letter-spacing: 4px;
-  text-shadow: 4px 4px 2px #000;
+  text-shadow: 4px 4px 2px $brand-dark;
 }
 
 nav {
-  height: $nav-height;
   background-color: $brand-primary;
-  border-top-left-radius: $border-radius-base;
+  border-top-left-radius: $border-radius-large;
   padding: $padding-base-vertical $padding-base-horizontal;
 
   a {
@@ -44,14 +43,13 @@ div.content {
   background-color: white;
   padding-top: $form-group-margin-bottom;
   color: $gray-dark;
-  border-bottom-left-radius: $border-radius-base;
-  border-bottom-right-radius: $border-radius-base;
+  border-bottom-left-radius: $border-radius-large;
+  border-bottom-right-radius: $border-radius-large;
   height: $content-height;
 }
 
 footer {
   color: $brand-accent2;
   font-size: $font-size-small;
-  padding-top: $padding-small-vertical;
-  height: $footer-height;
+  padding: $padding-small-vertical 0;  
 }

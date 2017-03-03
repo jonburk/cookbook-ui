@@ -1,0 +1,11 @@
+<div class='searchResult' [class.lastResult]='last'>
+  <img [src]='getThumbnail()' class='img-rounded pull-left recipeThumbnail' [alt]='recipe.title'>
+  <div class='recipeDetails'>
+    <div class='recipeTitle'><h4>{{ recipe.title }} <i *ngIf='recipe.favorite' class='fa fa-star'></i></h4></div>
+    <div class='bookReference'>{{ recipe.book.title }}, p. {{ recipe.page }}</div>
+    <div class='recipeIngredients'>
+      <cb-ingredient-tag *ngFor='let ingredient of recipe.ingredients' [ingredient]='ingredient' class='ingredientTagBlock'></cb-ingredient-tag>
+    </div>
+  </div>
+</div>
+<hr *ngIf='!last' />

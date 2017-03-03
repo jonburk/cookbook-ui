@@ -1,18 +1,35 @@
-// Variables
-$header-height: 128px;
-$footer-height: 32px;
-$nav-height: 32px;
-$content-height: calc(100vh - #{$header-height} - #{$footer-height} - #{$nav-height});
-$brand-accent: #feaf02;
-$brand-accent2: #feedc7;
-$brand-dark: #1c0602;
+// Colors
+$brand-accent: #FEAF02;
+$brand-accent2: #FFD987;
+$brand-dark: #332020;
 
-// Bootstrap
+// Bootstrap Colors
+$gray-base: #060708;
+$gray-darker: lighten($gray-base, 13.5%);
+$gray-dark: lighten($gray-base, 20%);
+$gray: lighten($gray-base, 33.5%);
+$gray-light: lighten($gray-base, 46.7%);
+$gray-lighter: lighten($gray-base, 93.5%);
+$brand-primary: #633;
+$brand-success: #19BC19;
+$brand-info: #1D6297;
+$brand-warning: #EB941F;
+$brand-danger: #EB1F1F;
+
+// Bootstrap Overrides
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $body-bg: $brand-dark;
 $text-color: white;
-$brand-primary: #633;
 $input-border-focus: lighten($brand-accent, 25%);
+$hr-border: $gray-light;
 
 // Import standard Bootstrap CSS (make sure this is after setting Bootstrap SASS variables)
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Heights
+$thumbnail-size: 96px;
+$line-height-small-computed: calc(#{$line-height-base} * #{$font-size-small});
+$header-height: 128px;
+$footer-height: calc(#{$padding-small-vertical} * 2 + #{$line-height-small-computed});
+$nav-height: calc(#{$padding-base-vertical} * 2 /*+ #{$line-height-computed}*/);
+$content-height: calc(100vh - #{$header-height} - #{$footer-height} - #{$nav-height});

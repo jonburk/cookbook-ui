@@ -12,8 +12,16 @@
             [typeahead]='searchHints'
             (typeaheadOnSelect)='typeaheadOnSelect($event)'>      
       <span class='input-group-btn'>
-        <button type='submit' class='btn btn-primary' (click)='search($event)'><i class='fa fa-search'></i></button>
+        <button type='submit' class='btn btn-primary' (click)='search($event)' [disabled]='busy'>
+          <i [ngClass]='getSearchButtonClasses()'></i>
+        </button>
       </span>
     </div>
   </div>
 </form>
+<div *ngIf='recipes && recipes.length > 0' class='searchResults'>
+  <cb-search-result *ngFor='let recipe of recipes; let last = last' [recipe]='recipe' [last]='last'></cb-search-result>
+</div>
+<div *ngIf='!recipes || recipes.length === 0' class='emptyResults'>
+  <i [ngClass]='getEmptyResultsClasses()'></i>
+</div>

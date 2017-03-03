@@ -1,0 +1,25 @@
+@import '../../../public/css/common';
+
+$searchResultHeight: calc(#{$content-height} - #{$form-group-margin-bottom} * 2 - #{$line-height-computed} - #{$padding-small-vertical} - #{$input-height-base});
+$scrollbarAllowance: calc(#{$grid-gutter-width} / 2);
+
+.searchResults {
+  overflow-y: auto;
+  height: $searchResultHeight;
+  margin-right: calc(#{$scrollbarAllowance} * -1);
+  padding-right: $scrollbarAllowance;
+}
+
+.emptyResults {
+    height: $searchResultHeight;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    i {
+      margin-top: calc(#{$form-group-margin-bottom} / -2);
+      color: $gray-lighter;
+      font-size: 10em;
+    }
+}
