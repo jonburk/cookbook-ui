@@ -80,8 +80,10 @@ export class SearchComponent implements OnInit {
   public getEmptyResultsClasses() {
     return {
       fa: true,
-      'fa-frown-o': this.hasSearched && this.recipes.length === 0,
-      'fa-cutlery': !this.hasSearched
+      'fa-frown-o': !this.busy && this.hasSearched && this.recipes.length === 0,
+      'fa-cutlery': !this.busy && !this.hasSearched,
+      'fa-circle-o-notch': this.busy,
+      'fa-spin': this.busy
     }
   }
 
