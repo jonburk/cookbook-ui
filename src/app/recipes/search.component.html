@@ -19,8 +19,13 @@
     </div>
   </div>
 </form>
-<div *ngIf='recipes && recipes.length > 0' class='searchResults'>
+<div *ngIf='recipes && recipes.length > 0' 
+  class='searchResults'
+  infiniteScroll
+  (scrolled)='onScroll()'
+  [scrollWindow]='false'>
   <cb-search-result *ngFor='let recipe of recipes; let last = last' [recipe]='recipe' [last]='last'></cb-search-result>
+  <div *ngIf='recipes.length < totalCount' class='infinite-scroll-loading'><i class='fa fa-circle-o-notch fa-spin'></i></div>
 </div>
 <div *ngIf='!recipes || recipes.length === 0' class='emptyResults'>
   <i [ngClass]='getEmptyResultsClasses()'></i>

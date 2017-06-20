@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   searchTerm: string;
   searchTermShadow: string;
   recipes: Recipe[];
+  totalCount: number;
   busy: boolean;
   hasSearched: boolean;
 
@@ -28,6 +29,12 @@ export class SearchComponent implements OnInit {
     this.searchHints = Observable.create((observer: any) => {
       observer.next(this.searchTerm);
     }).mergeMap((startsWith: string) => this.getSearchHints(startsWith));    
+  }
+
+  public onScroll() : void {
+    if (this.recipes.length < this.totalCount) {
+      this.search(null, this.recipes.length);
+    }
   }
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
@@ -41,13 +48,23 @@ export class SearchComponent implements OnInit {
     this.searchTerm += ', '
   }
 
-  public search(event: any) : void {
+  public search(event: any, offset = 0) : void {
     this.busy = true;
     const terms = this.getTerms(this.searchTerm || '').filter(s => s.length > 0);
-    this.recipeService.search(terms, 0, 10).subscribe(recipes => {
+
+    if (offset === 0) {
+      this.recipes = [];
+    }
+
+    this.recipeService.search(terms, offset, 20).subscribe(recipes => {
       this.busy = false;
       this.hasSearched = true;
-      this.recipes = recipes;
+
+      if (recipes.offset === this.recipes.length) {
+        this.recipes = this.recipes.concat(recipes.result);
+      }
+
+      this.totalCount = recipes.totalCount;
     });  
   }
 

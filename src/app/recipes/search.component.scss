@@ -23,3 +23,14 @@ $scrollbarAllowance: calc(#{$grid-gutter-width} / 2);
       font-size: 10em;
     }
 }
+
+.infinite-scroll-loading {
+  text-align: center;
+  font-size: 2em;
+  margin-top: $padding-large-vertical;
+  margin-bottom: $padding-large-vertical;
+
+  i {
+    color: $gray-light;
+  }
+}
