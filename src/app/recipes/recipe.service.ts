@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
 import { Recipe } from '../shared/recipe';
+import { PagedResult } from '../shared/paged-result';
 
 @Injectable()
 export class RecipeService {
@@ -23,15 +24,16 @@ export class RecipeService {
                .catch(this.handleError);
   }
 
-  search(terms: string[], offset: number, limit: number): Observable<Recipe[]> {
+  search(terms: string[], offset: number, limit: number): Observable<PagedResult<Recipe>> {
     const params: URLSearchParams = new URLSearchParams();
-    terms.forEach(t => params.set('search', t));
-    params.set('search', terms[0]);
+    terms.forEach(t => params.append('search', t));
     params.set('offset', offset.toString());
     params.set('limit', limit.toString());
 
     return this.http.get(this.recipeUrl, { search: params })
-               .map(response => response.json() as Recipe[]);
+               .map(response => {                 
+                 return new PagedResult<Recipe>(response.json() as Recipe[], offset, Number(response.headers.get('X-Total-Count')))
+                });
   }
 
   private handleError(error: any) : Promise<any> {

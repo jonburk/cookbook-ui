@@ -5,6 +5,7 @@
   padding: $padding-small-vertical $padding-small-horizontal;
   display: inline-block;
   font-weight: normal;
+  min-height: calc(#{$padding-small-vertical} * 2 + 11px);
 
   i {
     margin-right: 0.5em;
