@@ -25,8 +25,7 @@ export class RecipeService {
 
   search(terms: string[], offset: number, limit: number): Observable<Recipe[]> {
     const params: URLSearchParams = new URLSearchParams();
-    terms.forEach(t => params.set('search', t));
-    params.set('search', terms[0]);
+    terms.forEach(t => params.append('search', t));
     params.set('offset', offset.toString());
     params.set('limit', limit.toString());
 
