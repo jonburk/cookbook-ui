@@ -43,3 +43,13 @@
 .recipeDetails {
   flex: 1 1 auto;
 }
+
+@media (max-width: $screen-xs-max) {
+  .recipeIngredients {
+    margin-left: calc(-1 * (#{$thumbnail-size} + #{$padding-base-horizontal}));
+  }
+
+  .recipeDetailText {
+    min-height: $thumbnail-size;
+  }
+}
