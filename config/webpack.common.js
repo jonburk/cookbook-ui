@@ -1,7 +1,7 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers');
+var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var helpers = require('./helpers')
 
 module.exports = {
   entry: {
@@ -21,7 +21,7 @@ module.exports = {
         loaders: [{
           loader: 'awesome-typescript-loader',
           options: { configFileName: helpers.root('tsconfig.json') }
-         } , 'angular2-template-loader']
+        }, 'angular2-template-loader']
       },
       {
         test: /\.html$/,
@@ -31,33 +31,33 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'file-loader?name=assets/[name].[hash].[ext]'
       },
-			{
-				test: /\.css$/,
-				exclude: helpers.root('src', 'app'),
-				loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap-loader!postcss-loader' })
-			},
-			{
-				test: /\.css$/,
-				include: helpers.root('src', 'app'),
-				loader: 'raw-loader!postcss-loader'
-			},
-			{
-				test: /\.scss$/,
-				exclude: helpers.root('src', 'app'),
-				loader: ExtractTextPlugin.extract({ 
-          fallback: 'style-loader', 
-          use: 'css-loader?sourceMap-loader!postcss-loader!resolve-url-loader!sass-loader?sourceMap-loader' 
+      {
+        test: /\.css$/,
+        exclude: helpers.root('src', 'app'),
+        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?sourceMap-loader!postcss-loader' })
+      },
+      {
+        test: /\.css$/,
+        include: helpers.root('src', 'app'),
+        loader: 'raw-loader!postcss-loader'
+      },
+      {
+        test: /\.scss$/,
+        exclude: helpers.root('src', 'app'),
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader?sourceMap-loader!postcss-loader!resolve-url-loader!sass-loader?sourceMap-loader'
         })
-			},
-			{ 
-				test: /\.scss$/,
-				include: helpers.root('src', 'app'),
-				loaders: ['exports-loader?module.exports.toString()', 'css-loader', 'postcss-loader', 'sass-loader']
-			},
-      { 
-        test: /\.(woff2?|ttf|eot|svg)$/, 
-        loader: 'url-loader?limit=10000' 
-      },      
+      },
+      {
+        test: /\.scss$/,
+        include: helpers.root('src', 'app'),
+        loaders: ['exports-loader?module.exports.toString()', 'css-loader', 'postcss-loader', 'sass-loader']
+      },
+      {
+        test: /\.(woff2?|ttf|eot|svg)$/,
+        loader: 'url-loader?limit=10000'
+      }
     ]
   },
 
@@ -78,4 +78,4 @@ module.exports = {
       template: 'src/index.html'
     })
   ]
-};
+}
