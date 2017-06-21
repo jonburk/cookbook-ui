@@ -15,19 +15,21 @@ div.banner {
   height: $header-height;
 }
 
+.h1-container {
+  position: absolute;
+}
+
 h1 {
   color: $brand-accent;
-  padding: 0 0 2px 0;
-  margin: -63px 0 0 0;
-  font-family: 'Arizonia', cursive;
-  font-size: 4em;
+  padding: 0;
+  margin: 0;
+  font-family: 'Arizonia', cursive;  
   letter-spacing: 4px;
-  text-shadow: 4px 4px 2px $brand-dark;
+  text-shadow: 4px 4px 2px $brand-dark;  
 }
 
 nav {
   background-color: $brand-primary;
-  border-top-left-radius: $border-radius-large;
   padding: $padding-base-vertical $padding-base-horizontal;
 
   a {
@@ -42,14 +44,51 @@ nav {
 div.content {
   background-color: white;
   padding-top: $form-group-margin-bottom;
-  color: $gray-dark;
-  border-bottom-left-radius: $border-radius-large;
-  border-bottom-right-radius: $border-radius-large;
+  color: $gray-dark;  
   height: $content-height;
 }
 
 footer {
   color: $brand-accent2;
-  font-size: $font-size-small;
-  padding: $padding-small-vertical 0;  
+  font-size: $font-size-small;    
+}
+
+@media (max-width: $screen-xs-max) {
+  h1 {
+    font-size: 2em;
+  }  
+
+  .h1-container {
+    top: calc(#{$header-height} - 2 * #{$font-size-base} - 2 * #{$padding-small-vertical} - 2px);
+    padding: $padding-small-vertical $padding-small-horizontal;
+    width: 100%;
+    background-color: rgba($brand-dark, .67);
+  }
+
+  footer {
+    padding: $padding-small-vertical $padding-small-horizontal;
+  }
+}
+
+@media (min-width: $screen-sm) {
+  nav {    
+    border-top-left-radius: $border-radius-large;
+  }
+
+  h1 {
+    font-size: 4em;    
+  }
+
+  .h1-container {
+    top: calc(#{$header-height} - 4 * #{$font-size-base} - #{$padding-large-vertical});
+    padding-bottom: $padding-large-vertical;
+  }
+
+  div.content {
+    border-bottom-left-radius: $border-radius-large;
+  }
+
+  footer {
+    padding: $padding-small-vertical 0;
+  }
 }
