@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Ingredient } from '../shared/ingredient';
+import { Component, Input } from '@angular/core'
+import { Ingredient } from '../shared/ingredient'
 
 @Component({
   selector: 'cb-ingredient-tag',
@@ -9,9 +9,9 @@ import { Ingredient } from '../shared/ingredient';
 
 export class IngredientTagComponent {
   @Input()
-  ingredient: Ingredient;
+  ingredient: Ingredient
 
-  public getClass() {
+  public getClass () {
     return {
       ingredientTag: true,
       label: true,

@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
-import { RecipeService } from './recipe.service';
-import { Recipe } from '../shared/recipe';
+import { Component } from '@angular/core'
+import { OnInit } from '@angular/core'
+import { Observable } from 'rxjs/Observable'
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead'
+import { RecipeService } from './recipe.service'
+import { Recipe } from '../shared/recipe'
 
-import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/of'
 
 @Component({
   selector: 'cb-search',
@@ -15,60 +15,60 @@ import 'rxjs/add/observable/of';
 })
 
 export class SearchComponent implements OnInit {
-  searchHints: Observable<string[]>;
-  searchTerm: string;
-  searchTermShadow: string;
-  recipes: Recipe[];
-  totalCount: number;
-  busy: boolean;
-  hasSearched: boolean;
+  searchHints: Observable<string[]>
+  searchTerm: string
+  searchTermShadow: string
+  recipes: Recipe[]
+  totalCount: number
+  busy: boolean
+  hasSearched: boolean
 
-  constructor(private recipeService: RecipeService) { }
+  constructor (private recipeService: RecipeService) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     this.searchHints = Observable.create((observer: any) => {
-      observer.next(this.searchTerm);
-    }).mergeMap((startsWith: string) => this.getSearchHints(startsWith));    
+      observer.next(this.searchTerm)
+    }).mergeMap((startsWith: string) => this.getSearchHints(startsWith))
   }
 
-  public onScroll() : void {
+  public onScroll (): void {
     if (this.recipes.length < this.totalCount) {
-      this.search(null, this.recipes.length);
+      this.search(null, this.recipes.length)
     }
   }
 
-  public typeaheadOnSelect(e: TypeaheadMatch): void {
-    const terms = this.getTerms(this.searchTermShadow);
-    
+  public typeaheadOnSelect (e: TypeaheadMatch): void {
+    const terms = this.getTerms(this.searchTermShadow)
+
     if (terms.length > 1) {
-      terms[terms.length - 1] = terms[terms.length - 1].startsWith('-') ? '-' + e.value : e.value;
-      this.searchTerm = terms.join(', ');
+      terms[terms.length - 1] = terms[terms.length - 1].startsWith('-') ? '-' + e.value : e.value
+      this.searchTerm = terms.join(', ')
     }
 
     this.searchTerm += ', '
   }
 
-  public search(event: any, offset = 0) : void {
-    this.busy = true;
-    const terms = this.getTerms(this.searchTerm || '').filter(s => s.length > 0);
+  public search (event: any, offset = 0): void {
+    this.busy = true
+    const terms = this.getTerms(this.searchTerm || '').filter(s => s.length > 0)
 
     if (offset === 0) {
-      this.recipes = [];
+      this.recipes = []
     }
 
     this.recipeService.search(terms, offset, 20).subscribe(recipes => {
-      this.busy = false;
-      this.hasSearched = true;
+      this.busy = false
+      this.hasSearched = true
 
       if (recipes.offset === this.recipes.length) {
-        this.recipes = this.recipes.concat(recipes.result);
+        this.recipes = this.recipes.concat(recipes.result)
       }
 
-      this.totalCount = recipes.totalCount;
-    });  
+      this.totalCount = recipes.totalCount
+    })
   }
 
-  public getSearchButtonClasses() {
+  public getSearchButtonClasses () {
     return {
       fa: true,
       'fa-search': !this.busy,
@@ -77,7 +77,7 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  public getEmptyResultsClasses() {
+  public getEmptyResultsClasses () {
     return {
       fa: true,
       'fa-frown-o': !this.busy && this.hasSearched && this.recipes.length === 0,
@@ -87,15 +87,15 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  private getSearchHints(startsWith: string) : Promise<string[]> {
-    this.searchTermShadow = startsWith;
-    const terms = this.getTerms(startsWith);
-    const searchTerm = terms[terms.length - 1].replace('-', '');
-    
-    return searchTerm ? this.recipeService.getSearchHints(searchTerm) : new Promise<string[]>(r => r([]));
+  private getSearchHints (startsWith: string): Promise<string[]> {
+    this.searchTermShadow = startsWith
+    const terms = this.getTerms(startsWith)
+    const searchTerm = terms[terms.length - 1].replace('-', '')
+
+    return searchTerm ? this.recipeService.getSearchHints(searchTerm) : new Promise<string[]>(r => r([]))
   }
 
-  private getTerms(startsWith: string) : string[] {
-    return startsWith.split(',').map(s => s.trim());
+  private getTerms (startsWith: string): string[] {
+    return startsWith.split(',').map(s => s.trim())
   }
 }

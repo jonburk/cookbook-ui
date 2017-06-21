@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Recipe } from '../shared/recipe';
+import { Component, Input } from '@angular/core'
+import { Recipe } from '../shared/recipe'
 
 @Component({
   selector: 'cb-search-result',
@@ -9,12 +9,12 @@ import { Recipe } from '../shared/recipe';
 
 export class SearchResultComponent {
   @Input()
-  recipe: Recipe;
+  recipe: Recipe
 
   @Input()
-  last: boolean;
+  last: boolean
 
-  public getThumbnail() {
-    return `http://localhost:8080/api/recipes/${this.recipe.id}/thumbnail`;
+  public getThumbnail () {
+    return `http://localhost:8080/api/recipes/${this.recipe.id}/thumbnail`
   }
 }
