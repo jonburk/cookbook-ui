@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import '../../public/css/styles.scss';
+import { Component } from '@angular/core'
+import '../../public/css/styles.scss'
 
 @Component({
   selector: 'cb-app',
