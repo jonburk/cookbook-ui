@@ -26,6 +26,6 @@ export class ViewRecipeComponent implements OnInit {
   }
 
   getPicture () {
-    return `http://localhost:8080/api/recipes/${this.recipe.id}/image`
+    return `http://localhost:8080/api/recipes/${this.recipe.id}/photo`
   }
 }
