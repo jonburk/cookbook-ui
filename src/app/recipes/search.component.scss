@@ -37,7 +37,7 @@ $searchResultHeight-xs: calc(#{$searchResultHeight} + #{$nav-height});
 }
 
 @media (max-width: $screen-xs-max) {
-  .searchResults
+  .searchResults,
   .emptyResults {
     height: $searchResultHeight-xs;
   }
