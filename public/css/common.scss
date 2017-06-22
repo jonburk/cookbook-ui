@@ -38,6 +38,7 @@ $header-height: 128px;
 $footer-height: calc(#{$padding-small-vertical} * 2 + #{$line-height-small-computed});
 $nav-height: calc(#{$padding-base-vertical} * 2 + #{$line-height-computed});
 $content-height: calc(100vh - #{$header-height} - #{$footer-height} - #{$nav-height});
+$content-height-xs: calc(#{$content-height} + #{$nav-height});
 
 @mixin square-image-size($size) {
   width: $size;

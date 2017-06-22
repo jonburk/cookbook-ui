@@ -2,6 +2,14 @@
   <header class='row'>    
     <div class='banner'><div class='bannerGradient'></div></div>
     <div class='h1-container'>
+      <div class='xs-menu pull-left' dropdown>
+        <button class='btn btn-default dropdown-toggle' type='button' dropdownToggle>
+          <i class='fa fa-bars'></i>
+        </button>
+        <ul *dropdownMenu class='dropdown-menu' role='menu'>
+          <li role='menuitem'><a class='dropdown-item' routerLink='/search'>Recipes</a></li>
+        </ul>
+      </div>
       <h1>To Serve Man&hellip;</h1>
     </div>
     <nav><a routerLink='/search'>Recipes</a></nav>
