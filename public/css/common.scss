@@ -28,8 +28,18 @@ $hr-border: $gray-light;
 
 // Heights
 $thumbnail-size: 96px;
+$recipe-image-size-lg: 456px;
+$recipe-image-size-md: 371px;
+$recipe-image-size-sm: 284px;
+$recipe-image-size-xs: 144px;
+$recipe-image-size-xxs: 420px;
 $line-height-small-computed: calc(#{$line-height-base} * #{$font-size-small});
 $header-height: 128px;
 $footer-height: calc(#{$padding-small-vertical} * 2 + #{$line-height-small-computed});
 $nav-height: calc(#{$padding-base-vertical} * 2 /*+ #{$line-height-computed}*/);
 $content-height: calc(100vh - #{$header-height} - #{$footer-height} - #{$nav-height});
+
+@mixin square-image-size($size) {
+  width: $size;
+  height: $size;
+}
