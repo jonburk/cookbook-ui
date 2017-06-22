@@ -1,0 +1,123 @@
+@import '../../../public/css/common';
+
+h2 i {
+  color: $brand-accent;
+  margin-left: $padding-base-horizontal;
+}
+
+.label {
+  padding: $padding-small-vertical $padding-small-horizontal;
+  display: inline-block;
+  font-weight: normal;
+  margin-right: $padding-small-horizontal;
+}
+
+.book {
+  margin-bottom: $padding-base-vertical;
+  font-style: italic;
+  font-size: $font-size-large;
+  color: $gray-light;
+}
+
+img.recipe-picture-xs {
+  display: none;
+  @include square-image-size($recipe-image-size-xs);
+  margin-right: $padding-large-horizontal;
+}
+
+.title-container {
+  background-repeat: no-repeat;
+}
+
+@media (min-width: $screen-lg) {
+  img.recipe-picture {
+    @include square-image-size($recipe-image-size-lg);
+  }
+}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+  img.recipe-picture {
+    @include square-image-size($recipe-image-size-md);
+  }
+}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+  img.recipe-picture {
+    @include square-image-size($recipe-image-size-sm);
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  img.recipe-picture {
+    display: none;
+  }
+
+.page-header {
+    margin-top: 0;
+
+    h2 {
+      font-size: $font-size-h3;
+    }
+
+    .book {
+      font-size: calc(#{$font-size-base} * 1.125);
+    }
+
+    img.recipe-picture-xs {
+      display: inline-block;
+    }
+  }
+}
+
+@media (min-width: $recipe-image-size-xxs + 1) {
+  .title-container {
+    background-image: none !important;
+  }
+}
+
+@media (max-width: $recipe-image-size-xxs) {
+  img.recipe-picture {
+    display: none;
+  }
+
+  img.recipe-picture-xs {
+    display: none;
+  }
+
+  .page-header {
+    background-size: 100vw;
+    margin-top: -15px;
+    margin-bottom: 0;
+    border-bottom: none;
+
+    h2 {
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      padding: $padding-large-vertical $padding-large-horizontal;
+      width: 100vw;
+      background-color: rgba(255, 255, 255, .67);
+      font-size: $font-size-h4;
+
+      i {
+        text-shadow: 1px 1px 2px $gray-dark;
+      }
+    }
+
+    .title-container {
+      margin-left: -15px;
+      margin-right: -15px;
+      width: 100vw;
+      height: 67vw;
+      background-size: 100vw 100vw;
+      background-position-y: -33vw;
+      position: relative;
+    }
+
+    .book {
+      margin-top: $padding-base-vertical;
+      font-size: $font-size-base;
+      color: $gray;
+    }
+  }
+}

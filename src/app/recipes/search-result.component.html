@@ -2,7 +2,7 @@
   <img [src]='getThumbnail()' class='img-rounded pull-left recipeThumbnail' [alt]='recipe.title'>
   <div class='recipeDetails'>
     <div class='recipeDetailText'>
-      <div class='recipeTitle'><h4>{{ recipe.title }} <i *ngIf='recipe.favorite' class='fa fa-star'></i></h4></div>
+      <div class='recipeTitle'><h4><a [routerLink]="['/recipes', recipe.id]">{{ recipe.title }}</a> <i *ngIf='recipe.favorite' class='fa fa-star'></i></h4></div>
       <div class='bookReference'>{{ recipe.book.title }}, p. {{ recipe.page }}</div>
     </div>
     <div class='recipeIngredients'>

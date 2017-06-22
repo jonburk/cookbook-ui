@@ -10,6 +10,7 @@ import { AppComponent } from './app.component'
 import { SearchComponent } from './recipes/search.component'
 import { SearchResultComponent } from './recipes/search-result.component'
 import { IngredientTagComponent } from './recipes/ingredient-tag.component'
+import { ViewRecipeComponent } from './recipes/view.component'
 
 import { AppRoutingModule } from './app-routing.module'
 
@@ -26,7 +27,8 @@ import { AppRoutingModule } from './app-routing.module'
     AppComponent,
     SearchComponent,
     SearchResultComponent,
-    IngredientTagComponent
+    IngredientTagComponent,
+    ViewRecipeComponent
   ],
   bootstrap: [ AppComponent ]
 })

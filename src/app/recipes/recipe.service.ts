@@ -36,6 +36,10 @@ export class RecipeService {
                })
   }
 
+  getRecipe (id: string): Observable<Recipe> {
+    return this.http.get(this.recipeUrl + id).map(response => response.json() as Recipe)
+  }
+
   private handleError (error: any): Promise<any> {
     console.error(error)
     return Promise.reject(error.message || error)

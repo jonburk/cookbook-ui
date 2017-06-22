@@ -46,6 +46,8 @@ div.content {
   padding-top: $form-group-margin-bottom;
   color: $gray-dark;  
   height: $content-height;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 footer {
