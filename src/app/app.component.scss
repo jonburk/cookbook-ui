@@ -28,6 +28,22 @@ h1 {
   text-shadow: 4px 4px 2px $brand-dark;  
 }
 
+.xs-menu {
+  display: none;
+  margin-right: $padding-base-horizontal;
+  
+  button {
+    padding: $padding-small-vertical 0;   
+
+    &, &:hover, &:active, &:focus {
+      background-color: transparent !important;
+      border: none !important;
+      color: $brand-accent !important;
+      outline: none !important;
+    }
+  }
+}
+
 nav {
   background-color: $brand-primary;
   padding: $padding-base-vertical $padding-base-horizontal;
@@ -60,6 +76,10 @@ footer {
     font-size: 2em;
   }  
 
+  .xs-menu {
+    display: block;
+  }  
+
   .h1-container {
     top: calc(#{$header-height} - 2 * #{$font-size-base} - 2 * #{$padding-small-vertical} - 2px);
     padding: $padding-small-vertical $padding-small-horizontal;
@@ -69,6 +89,14 @@ footer {
 
   footer {
     padding: $padding-small-vertical $padding-small-horizontal;
+  }
+
+  nav {
+    display: none;
+  }
+
+  div.content {
+    height: $content-height-xs;
   }
 }
 
